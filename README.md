@@ -50,15 +50,6 @@ NODE_ENV=production MONGODB_URI=... JWT_SECRET=... CLIENT_ORIGIN=https://your-do
 
 With `NODE_ENV=production` and `frontend/dist` present, Express serves the React app and the API on one port. Build the frontend with **no** `VITE_API_URL` (or empty) so requests use relative `/api/...` on the same host.
 
-## AWS (deliverable)
-
-Typical options:
-
-- **MongoDB Atlas** for the database (recommended) — whitelist your AWS instance IP or use VPC peering for production.
-- **EC2** + **Node** (`npm start` or **PM2**), security group open on 80/443; put **Nginx** in front for TLS and reverse proxy to Node.
-- Alternatively **Elastic Beanstalk** for the Node app, or **Amplify** / **S3+CloudFront** for the frontend with the API on **Lambda/API Gateway** or **EC2** (then set `VITE_API_URL` to your API URL at build time).
-
-Replace `CLIENT_ORIGIN` with your real frontend URL for CORS if the UI and API are on different origins.
 
 ## API overview
 
